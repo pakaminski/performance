@@ -56,8 +56,8 @@ html
         
 
      
-    script(src='../reveal.js-3.6.0/lib/js/head.min.js')
-    script(src='../reveal.js-3.6.0/js/reveal.js')
+    script(src='reveal.js-3.6.0/lib/js/head.min.js')
+    script(src='reveal.js-3.6.0/js/reveal.js')
 
     script.
       Reveal.initialize({
@@ -72,18 +72,18 @@ html
         dependencies: [
           // Syntax highlight for <code> elements
            {
-                src: '../reveal.js-3.6.0/lib/js/classList.js', condition: function() {
+                src: 'reveal.js-3.6.0/lib/js/classList.js', condition: function() {
                     return !document.body.classList;
                 }
             },
             {
-                src: '../reveal.js-3.6.0/plugin/highlight/highlight.js', async: true, callback: function() {
+                src: 'reveal.js-3.6.0/plugin/highlight/highlight.js', async: true, callback: function() {
                     hljs.initHighlightingOnLoad();
                 }
             },
-            {src: '../reveal.js-3.6.0/plugin/search/search.js', async: true},
-            {src: '../reveal.js-3.6.0/plugin/zoom-js/zoom.js', async: true},
-            {src: '../reveal.js-3.6.0/plugin/notes/notes.js', async: true}      
+            {src: 'reveal.js-3.6.0/plugin/search/search.js', async: true},
+            {src: 'reveal.js-3.6.0/plugin/zoom-js/zoom.js', async: true},
+            {src: 'reveal.js-3.6.0/plugin/notes/notes.js', async: true}      
         ]
       });
      
