@@ -1,0 +1,24 @@
+  /*---------------------------------*/
+  
+  
+  .reveal, .reveal  h2 .title  {
+      color: white;      
+  }
+  
+  .reveal ul.no-bullet {
+    list-style-type: none;
+}
+
+.reveal h3 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: white !important; 
+}
+
+
+.reveal a {
+  text-decoration: underline;      
+}
+
+  
+  

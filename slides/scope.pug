@@ -1,0 +1,14 @@
+extends layout.pug
+
+block vars
+  -var title = 'scope'           
+
+block title
+        | Zakres testów
+block content      
+        ul
+            li.fragment Testujemy wydajność wszystkich endpointów używanych w aplikacji
+            li.fragment NIE testujemy wydajności aplikacji frontendowych
+            li.fragment Testujemy wydajność dostawców danych 
+
+

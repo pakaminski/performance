@@ -1,0 +1,13 @@
+extends layout.pug
+
+block vars
+  -var title = 'setup'           
+
+block title
+        | Infrastruktura
+block content      
+        ul
+            li.fragment 4 lokalizacje serwerów
+            li.fragment w każdej lokalizacji 2 slice'y
+        h3.fragment testujemy pesymistyczny scenariusz, w którm działa tylko jeden z 8 sliców
+

@@ -1,0 +1,215 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <title>Performance testing - na dzikim zachodzie</title>
+    <meta charset="utf-8"/>
+    <meta name="author" content=" "/>
+    <meta name="description" content="Performance testing - na dzikim zachodzie"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <link rel="icon" href="common/img/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link rel="stylesheet" href="reveal.js-3.6.0/css/reveal.css"/>
+    <link rel="stylesheet" href="reveal.js-3.6.0/css/theme/white.css"/>
+    <link rel="stylesheet" href="common/css/common.css"/>
+    <link rel="stylesheet" href="custom.css"/><!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="reveal.js-3.6.0/lib/css/zenburn.css"/><!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js-3.6.0/css/print/pdf.css' : '../reveal.js-3.6.0/css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+      
+    </script>
+    <style>
+      section.agenda ul {
+          list-style: none
+          margin: 0
+          color: var(--cap-white)
+      }    
+      
+      
+    </style>
+  </head>
+</html>
+<body>
+  <div class="reveal">
+    <div class="slides">       
+      <section id="title-0" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Performance testing <br> na dzikim zachodzie</h2>
+        <body class="white">
+          <p class="credits">na przykładzie dużej firmy:)</p>
+        </body>
+      </section>
+      <section id="use-case-1-1" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Use case</h2>
+        <body class="white">
+          <ul>               
+            <li class="fragment">TOP 150 USA</li>
+            <li class="fragment">Pięniądze, duże pieniądze</li>
+            <li class="fragment">Ryzko pojawienia się na pasku w CNN</li>
+            <li class="fragment">XXX wizyt dziennie</li>
+            <li class="fragment">kilka razy tyle w "czarne" dni tygodnia</li>
+          </ul>
+        </body>
+      </section>
+      <section id="use-case-2-2" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Use case</h2>
+        <body class="white">
+          <ul>               
+            <li class="fragment">nie pierwszej młodości aplikacje Javowe :)</li>
+            <li class="fragment">kilka nowszych aplikacji w JavaScripcie</li>
+            <li class="fragment">bardzo wiele źródeł danych</li>
+            <li class="fragment">aplikacje serwowane klasycznie, z kilku serwerów nie z chumury </li>
+          </ul>
+        </body>
+      </section>
+      <section id="scope-3" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Zakres testów</h2>
+        <body class="white">
+          <ul>
+            <li class="fragment">Testujemy wydajność wszystkich endpointów używanych w aplikacji</li>
+            <li class="fragment">NIE testujemy wydajności aplikacji frontendowych</li>
+            <li class="fragment">Testujemy wydajność dostawców danych </li>
+          </ul>
+        </body>
+      </section>
+      <section id="goal-4" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Cel testów</h2>
+        <body class="white">
+          <ul>
+            <li class="fragment">Zapewnić, że aplikacja będzie działać nawet w czarne dni na giełdzie</li>
+            <li class="fragment">Zapewnić, że aplikacja będzie działać nawet przy wyłączeniu jednego/kilku serwerów</li>
+          </ul>
+        </body>
+      </section>
+      <section id="setup-5" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Infrastruktura</h2>
+        <body class="white">
+          <ul>
+            <li class="fragment">4 lokalizacje serwerów</li>
+            <li class="fragment">w każdej lokalizacji 2 slice'y</li>
+          </ul>
+          <h3 class="fragment">testujemy pesymistyczny scenariusz, w którm działa tylko jeden z 8 sliców</h3>
+        </body>
+      </section>
+      <section id="preparation-6" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Przygotowanie</h2>
+        <body class="white">
+          <ul>
+            <li class="fragment">Przygotować listę serwisow wymaganych przez daną stronę</li>
+            <li class="fragment">Określić wagi zapytań do serwisów</li>
+            <li class="fragment">Oszacować oczwekiwane obciążenie</li>
+          </ul>
+        </body>
+      </section>
+      <section id="splunk-7" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">logi</h2>
+        <body class="white">
+          <h3>Na podstawie logów określamy:</h3>
+          <ul>
+            <li class="fragment">jakie serwisy są potrzebne aby załadować daną stronę</li>
+            <li class="fragment">jak często dany serwis odpytywany</li>
+          </ul>
+        </body>
+      </section>
+      <section id="test-data-8" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Dane testowe</h2>
+        <body class="white">
+          <h3>Po analize logów przygotowujemy plik z konfiguracją testów</h3>
+          <p>TU BEDZIE PRZYKLAD Z OPISEM PLIKU</p>
+          <p>Teoretycznie po każdej zmianie dotyczących serwisów plik ten powinien być uaktualniany.</p>
+        </body>
+      </section>
+      <section id="environment-config-9" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Środowisko testowe</h2>
+        <body class="white">
+          <ul>
+            <li class="fragment">Dedykowane serwery z produkcyjną konfiguracją</li>
+            <li class="fragment">Nieaktualna wersja aplikacji</li>
+            <li class="fragment">Nieaktualne ustawienia</li>
+          </ul>
+        </body>
+      </section>
+      <section id="dry-run-10" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Deweloperskie testy</h2>
+        <body class="white">
+          <ul>
+            <li class="fragment">Odpalamy testy skonfigurowane w pliku testowym na dedykowanym środowisku testowym</li>
+            <li class="fragment">Każdy test odpalamy dla pojedynczego requxxxx</li>
+            <li class="fragment">Oczekujemy, że wszsytkie zapytania dadzą rezulatat taki jak zdefiniowany w pliku testowym</li>
+            <li class="fragment">Jeżeli są rozbierzności to poprawiamy kod do skutuku...</li>
+          </ul>
+        </body>
+      </section>
+      <section id="end-of-dev-work-11" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Dedykowany dział</h2>
+        <body class="white">
+          <ul> 
+            <li class="fragment">Od tego momentu odpowiedzialność przejmuje dedykowany dział</li>
+            <li class="fragment">Na dedykowany Jenkinsie jest killka buildów z róznymi scenariuszami testów perfomancowych</li>
+            <li class="fragment">Testy zajmują kilka dni</li>
+            <li class="fragment">Jak się wszystko uda to dział daje "sign off'a" na instalacje</li>
+          </ul>
+        </body>
+      </section>
+      <section id="pros-12" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Zalety procesu</h2>
+        <body class="white">
+          <ul> 
+            <li class="fragment">Serwis jest przygotowany na najgorszy małoprawdopodobny scenariusz</li>
+            <li class="fragment">Testy są przeprowadzone przez dedykowanu wyspecializowany dział</li>
+            <li class="fragment">Testy są wymagana przy każdej zmianie związanej XXXX</li>
+          </ul>
+        </body>
+      </section>
+      <section id="cons-13" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <h2 class="white">Wady procesu</h2>
+        <body class="white">
+          <ul> 
+            <li class="fragment">Wiecznie nieaktualne środowisko testowe</li>
+            <li class="fragment">Nieaktualne dane testowe</li>
+            <li class="fragment">Trudno z synchronizować pracę zespołu do testów z cyklem deweloperskim</li>
+            <li class="fragment">Bardzo długa procedura</li>
+            <li class="fragment">Unikanie testowania performance'u</li>
+            <li class="fragment">Bardzo rzadko odpalana procedura</li>
+          </ul>
+        </body>
+      </section>
+      <section id="the-end-14" data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <h2 class="white">The end</h2>
+        <body class="white"></body>
+      </section>
+    </div>
+  </div>
+  <script src="../reveal.js-3.6.0/lib/js/head.min.js"></script>
+  <script src="../reveal.js-3.6.0/js/reveal.js"></script>
+  <script>
+     Reveal.initialize({
+      // controls: true,
+     //  progress: true,
+       history: true,
+     //  center: true,
+     //  rollingLinks: true,
+    //   transition: "convex",
+       //- width: "90%",
+       //- height: 1.0,
+       dependencies: [
+         // Syntax highlight for <code> elements
+          {
+               src: '../reveal.js-3.6.0/lib/js/classList.js', condition: function() {
+                   return !document.body.classList;
+               }
+           },
+           {
+               src: '../reveal.js-3.6.0/plugin/highlight/highlight.js', async: true, callback: function() {
+                   hljs.initHighlightingOnLoad();
+               }
+           },
+           {src: '../reveal.js-3.6.0/plugin/search/search.js', async: true},
+           {src: '../reveal.js-3.6.0/plugin/zoom-js/zoom.js', async: true},
+           {src: '../reveal.js-3.6.0/plugin/notes/notes.js', async: true}      
+       ]
+     });
+  </script>
+</body>
